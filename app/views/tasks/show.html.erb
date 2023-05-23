@@ -1,0 +1,19 @@
+<h2><%= @task.title %></h2>
+<p><%= @task.details %></p>
+<p><%= @task.completed? ? '[X] This task is completed' : '[ ] This task is not completed'%></p>
+
+<div class="container">
+  <div class="justify-content-center p-2">
+    <%= link_to task_edit_path(@task), class: "btn btn-primary flex-column" do %>
+      <i class="fa-solid fa-pen-to-square"></i>
+      Edit
+    <% end %>
+    <%= link_to task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" do %>
+      <i class="fa-solid fa-trash"></i>
+      Delete
+    <% end %>
+  </div>
+  <div class="justify-content-center p-2">
+    <%= link_to "Back to the list of tasks", tasks_path(@task), class: "text-decoration-none" %>
+  </div>
+</div>
